@@ -378,7 +378,7 @@ tbody tr:nth-child(even){background:#fafcf5}
     <div class="card-title">✍️ Configuração de Assinaturas do Relatório</div>
     <div class="sig-config-grid" style="max-width:280px">
       <div class="sig-config-box">
-        <label>Cargo/Título do Engenheiro</label>
+        <label>Cargo/Título</label>
         <input type="text" id="sig3Label" placeholder="Ex: Engenheiro Responsável"/>
         <label style="margin-top:8px">Nome</label>
         <input type="text" id="sig3Name" placeholder="Nome do engenheiro responsável"/>
@@ -1204,7 +1204,7 @@ function exportarPDF(){
     }).join('');
     const totalDia=rd.cats.reduce((s,cat)=>{let q=0;(cat.itens||[]).forEach(itm=>{q+=(reg.itens||{})[itm.id]||0;});return s+q;},0);
     dailyRows+=`<tr>
-      <td style="text-align:left;border:1px solid #ddd;white-space:nowrap;padding-left:6px">${dateLabel}</td>
+      <td style="text-align:left;padding-left:6px;border:1px solid #ddd;white-space:nowrap">${dateLabel}</td>
       <td style="text-align:center;border:1px solid #ddd">${reg.efetivo||''}</td>
       ${itemCells}${catQtyCells}
       <td style="text-align:center;border:1px solid #ddd;font-weight:700">${totalDia||''}</td>
@@ -1223,7 +1223,7 @@ function exportarPDF(){
     summaryRows+=`<tr style="background:${emp.pdfMedium}"><td style="padding:5px 10px;font-weight:800;border:1px solid #ccc;color:${emp.pdfLightText}">Subtotal ${cat.nome}</td><td style="text-align:center;border:1px solid #ccc;font-weight:800;color:${emp.pdfLightText}">${ct.qty}</td><td></td><td style="text-align:right;border:1px solid #ccc;font-weight:800;color:${emp.pdfLightText}">${fmtMoeda(ct.total)}</td></tr>`;
   });
 
-  // Signature blocks — only Engenheiro Responsável
+  // Signature block — only Engenheiro Responsável
   const sigs=(()=>{
     const lbl=sig.sig3Label||'Engenheiro Responsável';
     const name=sig.sig3Name||'';
@@ -1235,20 +1235,15 @@ function exportarPDF(){
     </div>`;
   })();
 
-  const html=`<!DOCTYPE html><html><head><meta charset="UTF-8"/>
+  const html=`<!DOCTYPE html><html><head><meta charset="UTF-8"/><style>@page{size:A4 landscape!important;margin:8mm}</style>
   <title>Relatório</title>
   <style>
     @page{size:A4 landscape;margin:8mm}
-    body{font-family:Arial,sans-serif;font-size:9pt;color:${emp.pdfLightText};-webkit-print-color-adjust:exact;print-color-adjust:exact}
-    *{-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important}
+    @media print{@page{size:A4 landscape;margin:8mm}}
+    body{font-family:Arial,sans-serif;font-size:10pt;color:${emp.pdfLightText}}
     table{border-collapse:collapse;width:100%}
-    th,td{padding:2px 5px;border:1px solid #ccc;font-size:8pt;white-space:nowrap}
+    th,td{padding:3px 7px;border:1px solid #ccc;font-size:9pt;white-space:nowrap}
     thead th{background:${emp.pdfDark};color:${emp.pdfDarkText}}
-    @media print{
-      html,body{width:100%;height:100%}
-      body{transform-origin:top left;zoom:fit}
-      .no-break{page-break-inside:avoid}
-    }
     .logo{height:50px;max-width:160px}
     .header-box{background:${emp.pdfDark};color:${emp.pdfDarkText};padding:10px 16px;margin-bottom:8px;border-radius:4px}
     .info-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-bottom:10px}
@@ -1257,13 +1252,13 @@ function exportarPDF(){
     .total-row{background:${emp.pdfTotal}!important;font-weight:800;color:${emp.pdfTotalText}!important}
     h3{color:${emp.pdfLightText};margin:12px 0 6px}
   </style></head><body>
-  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
+  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;overflow:visible">
     <img src="${emp.logo}" class="logo"/>
     <div class="header-box" style="flex:1;margin:0 16px;text-align:center">
       <div style="font-size:14pt;font-weight:800">${emp.nome} — RELATÓRIO DE ALIMENTAÇÃO</div>
       <div style="font-size:10pt;opacity:.85">${pd.label} · ${pd.periodo}</div>
     </div>
-    <div style="text-align:right;font-size:8pt;color:#666">Emitido:<br/>${nowStamp()}</div>
+    <div style="text-align:right;font-size:8pt;color:#666;min-width:120px;white-space:nowrap;flex-shrink:0">Emitido:<br/>${nowStamp()}</div>
   </div>
   <div class="info-grid">
     <div class="info-cell"><label>Fornecedor</label>${forn.nome}</div>
@@ -1289,7 +1284,7 @@ function exportarPDF(){
     </thead>
     <tbody>${dailyRows}
     <tr class="total-row">
-      <td colspan="2" style="text-align:center;border:1px solid #bbb"><strong>TOTAL GERAL</strong></td>
+      <td colspan="2" style="text-align:left!important;padding-left:8px;border:1px solid #bbb"><strong>TOTAL GERAL</strong></td>
       ${totalItemCells}${totalCatQtyCells}
       <td style="text-align:center;border:1px solid #bbb;font-weight:800">${totalQty}</td>
     </tr></tbody>
@@ -1303,27 +1298,16 @@ function exportarPDF(){
       <td style="text-align:right;font-weight:800;font-size:11pt;border:1px solid #ccc">${fmtMoeda(rd.totalGeral)}</td>
     </tr></tbody>
   </table>
-  <div style="display:flex;justify-content:flex-end;margin-top:30px">${sigs}</div>
+  <div style="display:flex;justify-content:space-around;margin-top:30px">${sigs}</div>
   <div style="border-top:1px solid #ccc;margin-top:20px;padding-top:8px;font-size:7.5pt;color:#888;text-align:center">
     Documento gerado automaticamente pelo Sistema de Gestão de Alimentação · ${nowStamp()}
   </div>
   </body></html>`;
 
-  const w=window.open('','_blank','width=1200,height=800');
+  const w=window.open('','_blank','width=1100,height=750');
   w.document.write(html);w.document.close();
   w.document.title=`RELATORIO ALIMENTACAO - ${forn.nome}${forn.obra?' - '+forn.obra:''}`;
-  setTimeout(()=>{
-    // Auto-scale to fit one page
-    const pageW=w.document.body.scrollWidth;
-    const printW=1122; // A4 landscape ~297mm at 96dpi
-    if(pageW>printW){
-      const scale=printW/pageW;
-      w.document.body.style.transform=`scale(${scale})`;
-      w.document.body.style.transformOrigin='top left';
-      w.document.body.style.width=(100/scale)+'%';
-    }
-    w.print();
-  },900);
+  setTimeout(()=>w.print(),800);
   logReport(pd,rd,'PDF');
 }
 
