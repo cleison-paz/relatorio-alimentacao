@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="pt-BR"><head>
-<meta http-equiv="content-type" content="text/html; charset=UTF-8">
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Controle de Refeição — Pro v5</title>
-<script src="index_files/xlsx.full.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
 <style>
 :root{
   --primary:#4a6130;--primary-d:#344521;--primary-l:#5e7a3e;--primary-xl:#7a9e52;
@@ -169,15 +169,15 @@ tbody tr:nth-child(even){background:#fafcf5}
 <header>
   <div class="hdr-top">
     <div class="hdr-logo">
-      <img id="headerLogo" class="logo-img" src="data:image/png;base64,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" alt="Garcia Monteiro">
+      <img id="headerLogo" class="logo-img" src="" alt="Logo"/>
       <div class="hdr-titles">
         <h1>Sistema de Gestão de Alimentação</h1>
         <p id="hdrSubtitle">Garcia Monteiro · Sistema de Gestão de Alimentação</p>
       </div>
     </div>
     <div class="hdr-right">
-      <div id="liveClock">19:09:48</div>
-      <div id="liveDate">terça-feira, 26 de maio de 2026</div>
+      <div id="liveClock"></div>
+      <div id="liveDate"></div>
     </div>
   </div>
   <div class="empresa-bar">
@@ -187,102 +187,47 @@ tbody tr:nth-child(even){background:#fafcf5}
   </div>
   <div class="supplier-bar">
     <label>🏢 Fornecedor:</label>
-    <select id="fornecedorSelect" class="inp" onchange="setActiveFornecedor(this.value)"><option value="">— Selecione —</option><option value="mpn6tblhq3hla" selected="selected">Fornecedor Padrão</option></select>
-    <div class="supplier-pill" id="supplierPill" style="display: flex;">
-      Categorias: <strong id="pillCats">4</strong>
+    <select id="fornecedorSelect" class="inp" onchange="setActiveFornecedor(this.value)">
+      <option value="">— Selecione —</option>
+    </select>
+    <div class="supplier-pill" id="supplierPill" style="display:none">
+      Categorias: <strong id="pillCats">0</strong>
     </div>
   </div>
   <div class="tabs">
-    <button class="tab-btn" onclick="showTab('tab-diario',this)">📋 Registro Diário</button>
+    <button class="tab-btn active" onclick="showTab('tab-diario',this)">📋 Registro Diário</button>
     <button class="tab-btn" onclick="showTab('tab-historico',this)">🗂️ Histórico</button>
     <button class="tab-btn" onclick="showTab('tab-relatorios',this)">📄 Relatórios</button>
     <button class="tab-btn" onclick="showTab('tab-equipe',this)">👤 Equipe</button>
     <button class="tab-btn" onclick="showTab('tab-fornecedores',this)">🏢 Fornecedores</button>
-    <button class="tab-btn active" onclick="showTab('tab-config',this)">⚙️ Configurações</button>
+    <button class="tab-btn" onclick="showTab('tab-config',this)">⚙️ Configurações</button>
   </div>
 </header>
 
 <div class="container">
 
 <!-- TAB DIÁRIO -->
-<div id="tab-diario" class="tab-content">
+<div id="tab-diario" class="tab-content active">
   <div class="card">
     <div class="card-title">🍽️ Registro Diário de Refeições</div>
-    <div id="diarioNoSupplier" class="alert alert-yellow" style="display: none;">⚠️ Selecione um fornecedor ativo para registrar refeições.</div>
-    <div id="diarioContent" style="display: block;">
+    <div id="diarioNoSupplier" class="alert alert-yellow">⚠️ Selecione um fornecedor ativo para registrar refeições.</div>
+    <div id="diarioContent" style="display:none">
       <!-- Date navigation -->
       <div class="day-nav">
         <button class="day-nav-arrow" onclick="navDay(-1)" title="Dia anterior">◀</button>
-        <input type="date" id="selectedDate" onchange="loadDay()" style="font-size:.9rem;font-weight:700;color:var(--primary);border:2px solid var(--border);border-radius:8px;padding:6px 10px" value="2026-05-26">
+        <input type="date" id="selectedDate" onchange="loadDay()" style="font-size:.9rem;font-weight:700;color:var(--primary);border:2px solid var(--border);border-radius:8px;padding:6px 10px"/>
         <button class="day-nav-arrow" onclick="navDay(1)" title="Próximo dia">▶</button>
         <button class="btn btn-gray btn-sm" onclick="setToday()">📅 Hoje</button>
-        <span id="dayOfWeekLabel" style="font-size:.85rem;color:#888;font-weight:600">Terça-feira</span>
+        <span id="dayOfWeekLabel" style="font-size:.85rem;color:#888;font-weight:600"></span>
       </div>
       <!-- Quinzena mini-calendar -->
-      <div id="quinzenaNav" style="margin-bottom:14px"><div class="quinzena-nav"><span class="qday-label">2ª Quinzena:</span><div class="qday qday-empty" onclick="goToDay('2026-05-16')" title="16/05/2026">16</div><div class="qday qday-empty" onclick="goToDay('2026-05-17')" title="17/05/2026">17</div><div class="qday qday-empty" onclick="goToDay('2026-05-18')" title="18/05/2026">18</div><div class="qday qday-empty" onclick="goToDay('2026-05-19')" title="19/05/2026">19</div><div class="qday qday-empty" onclick="goToDay('2026-05-20')" title="20/05/2026">20</div><div class="qday qday-empty" onclick="goToDay('2026-05-21')" title="21/05/2026">21</div><div class="qday qday-empty" onclick="goToDay('2026-05-22')" title="22/05/2026">22</div><div class="qday qday-empty" onclick="goToDay('2026-05-23')" title="23/05/2026">23</div><div class="qday qday-empty" onclick="goToDay('2026-05-24')" title="24/05/2026">24</div><div class="qday qday-empty" onclick="goToDay('2026-05-25')" title="25/05/2026">25</div><div class="qday qday-selected" onclick="goToDay('2026-05-26')" title="26/05/2026">26</div><div class="qday qday-empty" onclick="goToDay('2026-05-27')" title="27/05/2026">27</div><div class="qday qday-empty" onclick="goToDay('2026-05-28')" title="28/05/2026">28</div><div class="qday qday-empty" onclick="goToDay('2026-05-29')" title="29/05/2026">29</div><div class="qday qday-empty" onclick="goToDay('2026-05-30')" title="30/05/2026">30</div><div class="qday qday-empty" onclick="goToDay('2026-05-31')" title="31/05/2026">31</div></div></div>
-      <div class="kpi-grid" id="statsBar" style="margin-bottom:14px">
-    <div class="kpi-box"><div class="kpi-num">0</div><div class="kpi-lbl">Dias Reg. (2ª Quinzena)</div></div>
-    <div class="kpi-box"><div class="kpi-num">0</div><div class="kpi-lbl">Itens na Quinzena</div></div>
-    <div class="kpi-box kpi-yellow"><div class="kpi-num">R$ 0,00</div><div class="kpi-lbl">Custo da Quinzena</div></div></div>
+      <div id="quinzenaNav" style="margin-bottom:14px"></div>
+      <div class="kpi-grid" id="statsBar" style="margin-bottom:14px"></div>
       <div class="form-field" style="max-width:200px;margin-bottom:16px">
         <label>👷 Efetivo do dia (nº de trabalhadores):</label>
-        <input type="number" id="efetivoDia" min="0" step="1" placeholder="0" style="font-size:1.3rem;padding:10px 14px;text-align:center" oninput="recalcTotais()">
+        <input type="number" id="efetivoDia" min="0" step="1" placeholder="0" style="font-size:1.3rem;padding:10px 14px;text-align:center" oninput="recalcTotais()"/>
       </div>
-      <div id="categoriasForm"><div class="cat-section">
-      <div class="cat-header"><span>Almoço</span><span id="catTotal_cat_almoco" style="font-size:.85rem;opacity:.85">R$ 0,00</span></div>
-      <div class="cat-body"><div class="item-row">
-        <div class="item-name">Refeição</div>
-        <input type="number" class="item-qty-input" min="0" step="1" placeholder="0" data-item-id="itm_a1" data-valor="25" oninput="recalcTotais()" id="qty_itm_a1">
-        <div class="item-unit">R$ 25,00</div>
-        <div class="item-subtotal" id="sub_itm_a1">—</div>
-      </div><div class="item-row">
-        <div class="item-name">Marmitex</div>
-        <input type="number" class="item-qty-input" min="0" step="1" placeholder="0" data-item-id="itm_a2" data-valor="25" oninput="recalcTotais()" id="qty_itm_a2">
-        <div class="item-unit">R$ 25,00</div>
-        <div class="item-subtotal" id="sub_itm_a2">—</div>
-      </div><div class="item-row">
-        <div class="item-name">Refrigerante 2L</div>
-        <input type="number" class="item-qty-input" min="0" step="1" placeholder="0" data-item-id="itm_a3" data-valor="8" oninput="recalcTotais()" id="qty_itm_a3">
-        <div class="item-unit">R$ 8,00</div>
-        <div class="item-subtotal" id="sub_itm_a3">—</div>
-      </div></div>
-    </div><div class="cat-section">
-      <div class="cat-header"><span>Jantar</span><span id="catTotal_cat_jantar" style="font-size:.85rem;opacity:.85">R$ 0,00</span></div>
-      <div class="cat-body"><div class="item-row">
-        <div class="item-name">Refeição</div>
-        <input type="number" class="item-qty-input" min="0" step="1" placeholder="0" data-item-id="itm_j1" data-valor="27" oninput="recalcTotais()" id="qty_itm_j1">
-        <div class="item-unit">R$ 27,00</div>
-        <div class="item-subtotal" id="sub_itm_j1">—</div>
-      </div><div class="item-row">
-        <div class="item-name">Marmitex</div>
-        <input type="number" class="item-qty-input" min="0" step="1" placeholder="0" data-item-id="itm_j2" data-valor="27" oninput="recalcTotais()" id="qty_itm_j2">
-        <div class="item-unit">R$ 27,00</div>
-        <div class="item-subtotal" id="sub_itm_j2">—</div>
-      </div><div class="item-row">
-        <div class="item-name">Outros</div>
-        <input type="number" class="item-qty-input" min="0" step="1" placeholder="0" data-item-id="itm_j3" data-valor="0" oninput="recalcTotais()" id="qty_itm_j3">
-        <div class="item-unit">R$ 0,00</div>
-        <div class="item-subtotal" id="sub_itm_j3">—</div>
-      </div></div>
-    </div><div class="cat-section">
-      <div class="cat-header"><span>Café da Manhã</span><span id="catTotal_cat_cafe" style="font-size:.85rem;opacity:.85">R$ 0,00</span></div>
-      <div class="cat-body"><div class="item-row">
-        <div class="item-name">Kits Café</div>
-        <input type="number" class="item-qty-input" min="0" step="1" placeholder="0" data-item-id="itm_c1" data-valor="5" oninput="recalcTotais()" id="qty_itm_c1">
-        <div class="item-unit">R$ 5,00</div>
-        <div class="item-subtotal" id="sub_itm_c1">—</div>
-      </div><div class="item-row">
-        <div class="item-name">Leite</div>
-        <input type="number" class="item-qty-input" min="0" step="1" placeholder="0" data-item-id="itm_c2" data-valor="4" oninput="recalcTotais()" id="qty_itm_c2">
-        <div class="item-unit">R$ 4,00</div>
-        <div class="item-subtotal" id="sub_itm_c2">—</div>
-      </div><div class="item-row">
-        <div class="item-name">Outros</div>
-        <input type="number" class="item-qty-input" min="0" step="1" placeholder="0" data-item-id="itm_c3" data-valor="0" oninput="recalcTotais()" id="qty_itm_c3">
-        <div class="item-unit">R$ 0,00</div>
-        <div class="item-subtotal" id="sub_itm_c3">—</div>
-      </div></div>
-    </div></div>
+      <div id="categoriasForm"></div>
       <div id="totalDiaBar" class="day-total-bar" style="display:none">
         <div><div class="lbl">💰 TOTAL DO DIA</div><div class="val" id="totalDiaVal">R$ 0,00</div></div>
         <div style="text-align:right"><div class="lbl">Itens consumidos</div><div class="val" id="totalItensVal">0</div></div>
@@ -304,11 +249,13 @@ tbody tr:nth-child(even){background:#fafcf5}
   <div class="card">
     <div class="card-title">🗂️ Histórico de Registros</div>
     <div class="search-row">
-      <input class="search-inp" id="histSearch" placeholder="🔍 Buscar por data (ex: 2025-05)..." oninput="renderHistorico()">
-      <select class="inp" id="histFornFilter" onchange="renderHistorico()" style="min-width:200px"><option value="" selected="selected">Todos os fornecedores</option><option value="mpn6tblhq3hla">Fornecedor Padrão</option></select>
+      <input class="search-inp" id="histSearch" placeholder="🔍 Buscar por data (ex: 2025-05)..." oninput="renderHistorico()"/>
+      <select class="inp" id="histFornFilter" onchange="renderHistorico()" style="min-width:200px">
+        <option value="">Todos os fornecedores</option>
+      </select>
       <button class="btn btn-gray btn-sm" onclick="document.getElementById('histSearch').value='';renderHistorico()">Limpar</button>
     </div>
-    <div id="historicoContent"><div class="empty"><div class="empty-icon">📂</div><div class="empty-txt">Nenhum registro encontrado.</div></div></div>
+    <div id="historicoContent"></div>
   </div>
 </div>
 
@@ -316,8 +263,8 @@ tbody tr:nth-child(even){background:#fafcf5}
 <div id="tab-equipe" class="tab-content">
   <div class="card">
     <div class="card-title">👤 Equipe / Funcionários</div>
-    <div id="equipeNoSupplier" class="alert alert-yellow" style="display: none;">⚠️ Selecione um fornecedor ativo para gerenciar a equipe.</div>
-    <div id="equipeContent" style="display: block;">
+    <div id="equipeNoSupplier" class="alert alert-yellow">⚠️ Selecione um fornecedor ativo para gerenciar a equipe.</div>
+    <div id="equipeContent" style="display:none">
       <div class="alert alert-blue" style="margin-bottom:12px">
         📥 <strong>Importar planilha Excel:</strong> Prepare uma planilha com colunas <strong>Nome</strong> e <strong>Função</strong>. Os dados serão carregados automaticamente.
       </div>
@@ -326,14 +273,14 @@ tbody tr:nth-child(even){background:#fafcf5}
         <div class="import-box-text">Clique para importar planilha Excel (.xlsx / .xls)</div>
         <div class="import-box-sub">Colunas esperadas: <strong>Nome</strong> | <strong>Função</strong></div>
       </div>
-      <input type="file" id="excelImportInput" accept=".xlsx,.xls,.csv" style="display:none" onchange="importarPlanilhaFuncionarios(event)">
+      <input type="file" id="excelImportInput" accept=".xlsx,.xls,.csv" style="display:none" onchange="importarPlanilhaFuncionarios(event)"/>
       <div style="display:flex;gap:10px;margin-bottom:10px;flex-wrap:wrap">
-        <input type="text" id="novoFuncionario" placeholder="Nome do funcionário..." style="flex:1;min-width:180px;padding:8px 12px;border:2px solid var(--border);border-radius:8px;font-family:inherit" onkeydown="if(event.key==='Enter')adicionarFuncionario()">
-        <input type="text" id="novaFuncao" placeholder="Função/Cargo..." style="width:160px;padding:8px 12px;border:2px solid var(--border);border-radius:8px;font-family:inherit" onkeydown="if(event.key==='Enter')adicionarFuncionario()">
+        <input type="text" id="novoFuncionario" placeholder="Nome do funcionário..." style="flex:1;min-width:180px;padding:8px 12px;border:2px solid var(--border);border-radius:8px;font-family:inherit" onkeydown="if(event.key==='Enter')adicionarFuncionario()"/>
+        <input type="text" id="novaFuncao" placeholder="Função/Cargo..." style="width:160px;padding:8px 12px;border:2px solid var(--border);border-radius:8px;font-family:inherit" onkeydown="if(event.key==='Enter')adicionarFuncionario()"/>
         <button class="btn btn-green" onclick="adicionarFuncionario()">➕ Adicionar</button>
       </div>
-      <div style="margin-bottom:8px;font-size:.8rem;color:#888"><span id="empCount">0 funcionário(s) cadastrado(s)</span></div>
-      <div id="empListManage" style="max-height:420px;overflow-y:auto"><div class="empty" style="padding:20px"><div class="empty-txt">Nenhum funcionário. Adicione acima ou importe planilha.</div></div></div>
+      <div style="margin-bottom:8px;font-size:.8rem;color:#888"><span id="empCount">0 funcionários</span></div>
+      <div id="empListManage" style="max-height:420px;overflow-y:auto"></div>
     </div>
   </div>
 </div>
@@ -343,7 +290,7 @@ tbody tr:nth-child(even){background:#fafcf5}
   <div class="quick-bar">
     <div class="quick-bar-text">
       <h3>⚡ Fechamento Quinzenal Rápido</h3>
-      <p id="quickQuinzenaInfo">Mês atual: 05/2026 · 2ª Quinzena: 16/05 a 31/05</p>
+      <p id="quickQuinzenaInfo">Gere o relatório da quinzena atual com um clique</p>
     </div>
     <div style="display:flex;gap:8px;flex-wrap:wrap">
       <button class="btn btn-yellow" onclick="gerarQuinzenaRapida(1)">📅 1ª Quinzena</button>
@@ -364,10 +311,10 @@ tbody tr:nth-child(even){background:#fafcf5}
       </div>
     </div>
     <div class="report-options" id="opts-diario">
-      <div class="ctrl-row"><label>📅 Data:</label><input type="date" id="relDataDiario" value="2026-05-26"></div>
+      <div class="ctrl-row"><label>📅 Data:</label><input type="date" id="relDataDiario"/></div>
     </div>
     <div class="report-options" id="opts-quinzenal" style="display:none">
-      <div class="ctrl-row" style="margin-bottom:10px"><label>📅 Mês:</label><input type="month" id="relMesQuinzenal" value="2026-05"></div>
+      <div class="ctrl-row" style="margin-bottom:10px"><label>📅 Mês:</label><input type="month" id="relMesQuinzenal"/></div>
       <div class="period-tabs">
         <button class="period-tab active" id="qtab1" onclick="selectQuinzena(1)">1ª Quinzena (1-15)</button>
         <button class="period-tab" id="qtab2" onclick="selectQuinzena(2)">2ª Quinzena (16-fim)</button>
@@ -375,7 +322,7 @@ tbody tr:nth-child(even){background:#fafcf5}
       <div id="quinzenaInfo" style="font-size:.8rem;color:#666"></div>
     </div>
     <div class="report-options" id="opts-mensal" style="display:none">
-      <div class="ctrl-row"><label>📅 Mês/Ano:</label><input type="month" id="relMesMensal" value="2026-05"></div>
+      <div class="ctrl-row"><label>📅 Mês/Ano:</label><input type="month" id="relMesMensal"/></div>
     </div>
     <div class="form-field" style="margin-top:14px;margin-bottom:10px">
       <label style="font-size:.8rem;font-weight:700;color:var(--primary);display:block;margin-bottom:4px">📝 Observação (aparecerá no relatório):</label>
@@ -391,7 +338,7 @@ tbody tr:nth-child(even){background:#fafcf5}
   </div>
   <div class="card">
     <div class="card-title">🕐 Histórico de Relatórios Gerados</div>
-    <div id="reportLog"><div class="empty" style="padding:20px"><div class="empty-txt">Nenhum relatório gerado ainda.</div></div></div>
+    <div id="reportLog"></div>
   </div>
 </div>
 
@@ -402,184 +349,39 @@ tbody tr:nth-child(even){background:#fafcf5}
     <div class="btn-row" style="margin-bottom:16px">
       <button class="btn btn-green" onclick="openSupplierModal()">➕ Novo Fornecedor</button>
     </div>
-    <div class="supplier-cards" id="supplierCards"><div class="supplier-card active-card" onclick="setActiveFornecedor('mpn6tblhq3hla');renderSupplierCards()">
-      <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:10px">
-        <div><div class="sc-name">Fornecedor Padrão</div><div class="sc-cnpj">CNPJ não informado</div></div>
-        <span class="badge badge-green">ativo</span>
-      </div>
-      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px">
-        <div style="background:#f4f9ec;border-radius:6px;padding:7px;text-align:center"><div style="font-size:1.2rem;font-weight:800;color:var(--primary)">0</div><div style="font-size:.68rem;color:#888">Funcionários</div></div>
-        <div style="background:#f4f9ec;border-radius:6px;padding:7px;text-align:center"><div style="font-size:1.2rem;font-weight:800;color:var(--primary)">4</div><div style="font-size:.68rem;color:#888">Categorias</div></div>
-        <div style="background:#f4f9ec;border-radius:6px;padding:7px;text-align:center"><div style="font-size:1.2rem;font-weight:800;color:var(--primary)">0</div><div style="font-size:.68rem;color:#888">Dias Reg.</div></div>
-      </div>
-      <div style="display:flex;gap:6px;margin-top:10px">
-        <button class="btn btn-green btn-sm" onclick="event.stopPropagation();setActiveFornecedor('mpn6tblhq3hla');renderSupplierCards()">✅ Ativar</button>
-        <button class="btn btn-gray btn-sm" onclick="event.stopPropagation();openSupplierModal('mpn6tblhq3hla')">✏️ Editar</button>
-        <button class="btn btn-red btn-sm" onclick="event.stopPropagation();deleteFornecedor('mpn6tblhq3hla')">🗑️</button>
-      </div>
-    </div></div>
+    <div class="supplier-cards" id="supplierCards"></div>
   </div>
 </div>
 
 <!-- TAB CONFIG -->
-<div id="tab-config" class="tab-content active">
+<div id="tab-config" class="tab-content">
   <div class="card" id="configFornCard">
     <div class="card-title">🏢 Configurações do Fornecedor Ativo</div>
-    <div id="configNoSupplier" class="alert alert-yellow" style="display: none;">⚠️ Selecione um fornecedor ativo.</div>
-    <div id="configFornContent" style="display: block;">
-      <div class="form-grid" id="configFormGrid">
-    <div class="form-field"><label>RAZÃO SOCIAL</label><input type="text" id="cfg_nome" value="Fornecedor Padrão"></div>
-    <div class="form-field"><label>CNPJ</label><input type="text" id="cfg_cnpj"></div>
-    <div class="form-field"><label>CIDADE / UF</label><input type="text" id="cfg_cidade"></div>
-    <div class="form-field"><label>RESPONSÁVEL</label><input type="text" id="cfg_responsavel"></div>
-    <div class="form-field"><label>OBRA</label><input type="text" id="cfg_obra"></div>
-    <div class="form-field"><label>EQUIPE</label><input type="text" id="cfg_equipe"></div>
-    <div class="form-field"><label>APONTADOR</label><input type="text" id="cfg_apontador"></div>
-    <div class="form-field"><label>ORDEM DE COMPRA</label><input type="text" id="cfg_ordem"></div></div>
+    <div id="configNoSupplier" class="alert alert-yellow">⚠️ Selecione um fornecedor ativo.</div>
+    <div id="configFornContent" style="display:none">
+      <div class="form-grid" id="configFormGrid"></div>
       <div class="btn-row"><button class="btn btn-green" onclick="salvarConfigFornecedor()">💾 Salvar</button></div>
     </div>
   </div>
 
-  <div class="card" id="configCatCard" style="display: block;">
+  <div class="card" id="configCatCard" style="display:none">
     <div class="card-title">🍽️ Categorias e Itens de Consumo</div>
     <p style="font-size:.82rem;color:#666;margin-bottom:14px">Configure as categorias (Almoço, Jantar, etc.) e os itens com seus valores unitários.</p>
-    <div id="catCfgList">
-    <div class="cat-cfg-item">
-      <div class="cat-cfg-header" onclick="toggleCatCfg('catbody_cat_almoco')">
-        <h4>Almoço</h4>
-        <div style="display:flex;gap:6px">
-          <button class="btn btn-red btn-xs" onclick="event.stopPropagation();removerCategoria('cat_almoco')">🗑️ Remover</button>
-          <span style="font-size:.72rem;color:#888;align-self:center">3 itens ▼</span>
-        </div>
-      </div>
-      <div class="cat-cfg-body" id="catbody_cat_almoco">
-        
-          <div class="item-cfg-row">
-            <div class="item-cfg-nome">Refeição</div>
-            <input type="number" class="item-cfg-valor" value="25" min="0" step="0.01" placeholder="0,00" onchange="atualizarValorItem('cat_almoco','itm_a1',this.value)" title="Valor unitário">
-            <span style="font-size:.72rem;color:#888;margin-left:4px">R$/un</span>
-            <button class="btn btn-red btn-xs" style="margin-left:6px" onclick="removerItem('cat_almoco','itm_a1')">✕</button>
-          </div>
-          <div class="item-cfg-row">
-            <div class="item-cfg-nome">Marmitex</div>
-            <input type="number" class="item-cfg-valor" value="25" min="0" step="0.01" placeholder="0,00" onchange="atualizarValorItem('cat_almoco','itm_a2',this.value)" title="Valor unitário">
-            <span style="font-size:.72rem;color:#888;margin-left:4px">R$/un</span>
-            <button class="btn btn-red btn-xs" style="margin-left:6px" onclick="removerItem('cat_almoco','itm_a2')">✕</button>
-          </div>
-          <div class="item-cfg-row">
-            <div class="item-cfg-nome">Refrigerante 2L</div>
-            <input type="number" class="item-cfg-valor" value="8" min="0" step="0.01" placeholder="0,00" onchange="atualizarValorItem('cat_almoco','itm_a3',this.value)" title="Valor unitário">
-            <span style="font-size:.72rem;color:#888;margin-left:4px">R$/un</span>
-            <button class="btn btn-red btn-xs" style="margin-left:6px" onclick="removerItem('cat_almoco','itm_a3')">✕</button>
-          </div>
-        <div style="display:flex;gap:8px;margin-top:10px">
-          <input type="text" id="newItemNome_cat_almoco" placeholder="Nome do item..." style="flex:1;padding:5px 8px;border:1.5px solid var(--border);border-radius:5px;font-size:.82rem;font-family:inherit">
-          <input type="number" id="newItemValor_cat_almoco" placeholder="Valor" min="0" step="0.01" style="width:80px;padding:5px 8px;border:1.5px solid var(--border);border-radius:5px;font-size:.82rem;font-family:inherit">
-          <button class="btn btn-green btn-xs" onclick="adicionarItem('cat_almoco')">➕</button>
-        </div>
-      </div>
-    </div>
-    <div class="cat-cfg-item">
-      <div class="cat-cfg-header" onclick="toggleCatCfg('catbody_cat_jantar')">
-        <h4>Jantar</h4>
-        <div style="display:flex;gap:6px">
-          <button class="btn btn-red btn-xs" onclick="event.stopPropagation();removerCategoria('cat_jantar')">🗑️ Remover</button>
-          <span style="font-size:.72rem;color:#888;align-self:center">3 itens ▼</span>
-        </div>
-      </div>
-      <div class="cat-cfg-body" id="catbody_cat_jantar">
-        
-          <div class="item-cfg-row">
-            <div class="item-cfg-nome">Refeição</div>
-            <input type="number" class="item-cfg-valor" value="27" min="0" step="0.01" placeholder="0,00" onchange="atualizarValorItem('cat_jantar','itm_j1',this.value)" title="Valor unitário">
-            <span style="font-size:.72rem;color:#888;margin-left:4px">R$/un</span>
-            <button class="btn btn-red btn-xs" style="margin-left:6px" onclick="removerItem('cat_jantar','itm_j1')">✕</button>
-          </div>
-          <div class="item-cfg-row">
-            <div class="item-cfg-nome">Marmitex</div>
-            <input type="number" class="item-cfg-valor" value="27" min="0" step="0.01" placeholder="0,00" onchange="atualizarValorItem('cat_jantar','itm_j2',this.value)" title="Valor unitário">
-            <span style="font-size:.72rem;color:#888;margin-left:4px">R$/un</span>
-            <button class="btn btn-red btn-xs" style="margin-left:6px" onclick="removerItem('cat_jantar','itm_j2')">✕</button>
-          </div>
-          <div class="item-cfg-row">
-            <div class="item-cfg-nome">Outros</div>
-            <input type="number" class="item-cfg-valor" value="0" min="0" step="0.01" placeholder="0,00" onchange="atualizarValorItem('cat_jantar','itm_j3',this.value)" title="Valor unitário">
-            <span style="font-size:.72rem;color:#888;margin-left:4px">R$/un</span>
-            <button class="btn btn-red btn-xs" style="margin-left:6px" onclick="removerItem('cat_jantar','itm_j3')">✕</button>
-          </div>
-        <div style="display:flex;gap:8px;margin-top:10px">
-          <input type="text" id="newItemNome_cat_jantar" placeholder="Nome do item..." style="flex:1;padding:5px 8px;border:1.5px solid var(--border);border-radius:5px;font-size:.82rem;font-family:inherit">
-          <input type="number" id="newItemValor_cat_jantar" placeholder="Valor" min="0" step="0.01" style="width:80px;padding:5px 8px;border:1.5px solid var(--border);border-radius:5px;font-size:.82rem;font-family:inherit">
-          <button class="btn btn-green btn-xs" onclick="adicionarItem('cat_jantar')">➕</button>
-        </div>
-      </div>
-    </div>
-    <div class="cat-cfg-item">
-      <div class="cat-cfg-header" onclick="toggleCatCfg('catbody_cat_cafe')">
-        <h4>Café da Manhã</h4>
-        <div style="display:flex;gap:6px">
-          <button class="btn btn-red btn-xs" onclick="event.stopPropagation();removerCategoria('cat_cafe')">🗑️ Remover</button>
-          <span style="font-size:.72rem;color:#888;align-self:center">3 itens ▼</span>
-        </div>
-      </div>
-      <div class="cat-cfg-body" id="catbody_cat_cafe">
-        
-          <div class="item-cfg-row">
-            <div class="item-cfg-nome">Kits Café</div>
-            <input type="number" class="item-cfg-valor" value="5" min="0" step="0.01" placeholder="0,00" onchange="atualizarValorItem('cat_cafe','itm_c1',this.value)" title="Valor unitário">
-            <span style="font-size:.72rem;color:#888;margin-left:4px">R$/un</span>
-            <button class="btn btn-red btn-xs" style="margin-left:6px" onclick="removerItem('cat_cafe','itm_c1')">✕</button>
-          </div>
-          <div class="item-cfg-row">
-            <div class="item-cfg-nome">Leite</div>
-            <input type="number" class="item-cfg-valor" value="4" min="0" step="0.01" placeholder="0,00" onchange="atualizarValorItem('cat_cafe','itm_c2',this.value)" title="Valor unitário">
-            <span style="font-size:.72rem;color:#888;margin-left:4px">R$/un</span>
-            <button class="btn btn-red btn-xs" style="margin-left:6px" onclick="removerItem('cat_cafe','itm_c2')">✕</button>
-          </div>
-          <div class="item-cfg-row">
-            <div class="item-cfg-nome">Outros</div>
-            <input type="number" class="item-cfg-valor" value="0" min="0" step="0.01" placeholder="0,00" onchange="atualizarValorItem('cat_cafe','itm_c3',this.value)" title="Valor unitário">
-            <span style="font-size:.72rem;color:#888;margin-left:4px">R$/un</span>
-            <button class="btn btn-red btn-xs" style="margin-left:6px" onclick="removerItem('cat_cafe','itm_c3')">✕</button>
-          </div>
-        <div style="display:flex;gap:8px;margin-top:10px">
-          <input type="text" id="newItemNome_cat_cafe" placeholder="Nome do item..." style="flex:1;padding:5px 8px;border:1.5px solid var(--border);border-radius:5px;font-size:.82rem;font-family:inherit">
-          <input type="number" id="newItemValor_cat_cafe" placeholder="Valor" min="0" step="0.01" style="width:80px;padding:5px 8px;border:1.5px solid var(--border);border-radius:5px;font-size:.82rem;font-family:inherit">
-          <button class="btn btn-green btn-xs" onclick="adicionarItem('cat_cafe')">➕</button>
-        </div>
-      </div>
-    </div>
-    <div class="cat-cfg-item">
-      <div class="cat-cfg-header" onclick="toggleCatCfg('catbody_cat_outros')">
-        <h4>Outros</h4>
-        <div style="display:flex;gap:6px">
-          <button class="btn btn-red btn-xs" onclick="event.stopPropagation();removerCategoria('cat_outros')">🗑️ Remover</button>
-          <span style="font-size:.72rem;color:#888;align-self:center">0 itens ▼</span>
-        </div>
-      </div>
-      <div class="cat-cfg-body" id="catbody_cat_outros">
-        
-        <div style="display:flex;gap:8px;margin-top:10px">
-          <input type="text" id="newItemNome_cat_outros" placeholder="Nome do item..." style="flex:1;padding:5px 8px;border:1.5px solid var(--border);border-radius:5px;font-size:.82rem;font-family:inherit">
-          <input type="number" id="newItemValor_cat_outros" placeholder="Valor" min="0" step="0.01" style="width:80px;padding:5px 8px;border:1.5px solid var(--border);border-radius:5px;font-size:.82rem;font-family:inherit">
-          <button class="btn btn-green btn-xs" onclick="adicionarItem('cat_outros')">➕</button>
-        </div>
-      </div>
-    </div></div>
+    <div id="catCfgList"></div>
     <div class="btn-row" style="margin-top:14px">
-      <input type="text" id="newCatNome" placeholder="Nova categoria..." style="flex:1;max-width:240px">
+      <input type="text" id="newCatNome" placeholder="Nova categoria..." style="flex:1;max-width:240px"/>
       <button class="btn btn-green" onclick="adicionarCategoria()">➕ Adicionar Categoria</button>
     </div>
   </div>
 
-  <div class="card" id="configSigCard" style="display: block;">
+  <div class="card" id="configSigCard" style="display:none">
     <div class="card-title">✍️ Configuração de Assinaturas do Relatório</div>
     <div class="sig-config-grid" style="max-width:280px">
       <div class="sig-config-box">
         <label>Cargo/Título</label>
-        <input type="text" id="sig3Label" placeholder="Ex: Engenheiro Responsável" value="Engenheiro Responsável">
+        <input type="text" id="sig3Label" placeholder="Ex: Engenheiro Responsável"/>
         <label style="margin-top:8px">Nome</label>
-        <input type="text" id="sig3Name" placeholder="Nome do engenheiro responsável">
+        <input type="text" id="sig3Name" placeholder="Nome do engenheiro responsável"/>
       </div>
     </div>
     <div class="btn-row"><button class="btn btn-green" onclick="salvarAssinaturas()">💾 Salvar Assinaturas</button></div>
@@ -588,13 +390,13 @@ tbody tr:nth-child(even){background:#fafcf5}
   <div class="card">
     <div class="card-title">🖼️ Logo da Empresa Convias</div>
     <div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap">
-      <img id="previsualizaLogoConvias" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMjAgODUiPjxyZWN0IHdpZHRoPSIzMjAiIGhlaWdodD0iODUiIGZpbGw9IndoaXRlIi8+PHBvbHlnb24gcG9pbnRzPSIzOCw0IDcwLDQyIDM4LDgwIDYsNDIiIGZpbGw9IiMxQjNFOEMiLz48cG9seWdvbiBwb2ludHM9IjM4LDE0IDYwLDQyIDM4LDcwIDE2LDQyIiBmaWxsPSJ3aGl0ZSIgb3BhY2l0eT0iMC4xNSIvPjx0ZXh0IHg9IjM4IiB5PSI1MyIgZm9udC1mYW1pbHk9IkFyaWFsIEJsYWNrLEFyaWFsIiBmb250LXNpemU9IjI4IiBmb250LXdlaWdodD0iOTAwIiBmaWxsPSJ3aGl0ZSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+QzwvdGV4dD48dGV4dCB4PSIyMDAiIHk9IjU0IiBmb250LWZhbWlseT0iQXJpYWwgQmxhY2ssQXJpYWwiIGZvbnQtc2l6ZT0iMzYiIGZvbnQtd2VpZ2h0PSI5MDAiIGZpbGw9IiMxQjNFOEMiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGxldHRlci1zcGFjaW5nPSIyIj5DT05WSUFTPC90ZXh0Pjwvc3ZnPg==" style="height:50px;width:auto;border:1px solid var(--border);border-radius:6px;padding:4px;background:#fff">
+      <img id="previsualizaLogoConvias" src="" style="height:50px;width:auto;border:1px solid var(--border);border-radius:6px;padding:4px;background:#fff"/>
       <div>
         <button class="btn btn-outline btn-sm" onclick="document.getElementById('logoConviasInput').click()">📂 Importar logo Convias</button>
         <button class="btn btn-gray btn-sm" onclick="resetLogoConvias()" style="margin-left:6px">↩️ Padrão</button>
       </div>
     </div>
-    <input type="file" id="logoConviasInput" accept="image/*" style="display:none" onchange="importarLogoConvias(event)">
+    <input type="file" id="logoConviasInput" accept="image/*" style="display:none" onchange="importarLogoConvias(event)"/>
   </div>
 
   <div class="card">
@@ -603,7 +405,7 @@ tbody tr:nth-child(even){background:#fafcf5}
       <button class="btn btn-green" onclick="exportarBackup()">⬇️ Exportar Backup</button>
       <button class="btn btn-outline" onclick="document.getElementById('backupInput').click()">⬆️ Importar Backup</button>
     </div>
-    <input type="file" id="backupInput" accept=".json" style="display:none" onchange="importarBackup(event)">
+    <input type="file" id="backupInput" accept=".json" style="display:none" onchange="importarBackup(event)"/>
   </div>
 </div>
 
@@ -613,16 +415,16 @@ tbody tr:nth-child(even){background:#fafcf5}
 <div class="modal-overlay" id="modalFornecedor">
   <div class="modal">
     <div class="modal-title" id="modalFornTitle">Novo Fornecedor</div>
-    <input type="hidden" id="modalFornId">
+    <input type="hidden" id="modalFornId"/>
     <div class="form-grid">
-      <div class="form-field"><label>RAZÃO SOCIAL *</label><input type="text" id="mf_nome"></div>
-      <div class="form-field"><label>CNPJ</label><input type="text" id="mf_cnpj"></div>
-      <div class="form-field"><label>CIDADE / UF</label><input type="text" id="mf_cidade"></div>
-      <div class="form-field"><label>RESPONSÁVEL</label><input type="text" id="mf_responsavel"></div>
-      <div class="form-field"><label>OBRA</label><input type="text" id="mf_obra"></div>
-      <div class="form-field"><label>EQUIPE</label><input type="text" id="mf_equipe"></div>
-      <div class="form-field"><label>APONTADOR</label><input type="text" id="mf_apontador"></div>
-      <div class="form-field"><label>ORDEM DE COMPRA</label><input type="text" id="mf_ordem"></div>
+      <div class="form-field"><label>RAZÃO SOCIAL *</label><input type="text" id="mf_nome"/></div>
+      <div class="form-field"><label>CNPJ</label><input type="text" id="mf_cnpj"/></div>
+      <div class="form-field"><label>CIDADE / UF</label><input type="text" id="mf_cidade"/></div>
+      <div class="form-field"><label>RESPONSÁVEL</label><input type="text" id="mf_responsavel"/></div>
+      <div class="form-field"><label>OBRA</label><input type="text" id="mf_obra"/></div>
+      <div class="form-field"><label>EQUIPE</label><input type="text" id="mf_equipe"/></div>
+      <div class="form-field"><label>APONTADOR</label><input type="text" id="mf_apontador"/></div>
+      <div class="form-field"><label>ORDEM DE COMPRA</label><input type="text" id="mf_ordem"/></div>
     </div>
     <div class="modal-footer">
       <button class="btn btn-gray" onclick="closeModal('modalFornecedor')">Cancelar</button>
@@ -1381,10 +1183,10 @@ function exportarPDF(){
     `<th style="background:${emp.pdfColor};color:${emp.pdfDarkText};text-align:center;border:1px solid #777;font-size:7.5pt">${cat.nome.toUpperCase()}</th>`
   ).join('')+`<th style="background:${emp.pdfColor};color:${emp.pdfDarkText};text-align:center;border:1px solid #777;font-size:7.5pt">TOTAL DIA</th>`;
   const totalItemCells=rd.cats.map(cat=>(cat.itens||[]).map(itm=>
-    `<td style="text-align:center;border:1px solid #bbb;font-weight:800">${rd.itemTotals[itm.id]?.qty||0}</td>`
+    `<td style="text-align:center;border:1px solid #bbb">${rd.itemTotals[itm.id]?.qty||0}</td>`
   ).join('')).join('');
   const totalCatQtyCells=rd.cats.map(cat=>{
-    const ct=rd.catTotals[cat.id];return `<td style="text-align:center;border:1px solid #bbb;font-weight:800">${ct?ct.qty:0}</td>`;
+    const ct=rd.catTotals[cat.id];return `<td style="text-align:center;border:1px solid #bbb">${ct?ct.qty:0}</td>`;
   }).join('');
   const totalQty=rd.cats.reduce((s,cat)=>{const ct=rd.catTotals[cat.id];return s+(ct?ct.qty:0);},0);
   let dailyRows='';
@@ -1405,7 +1207,7 @@ function exportarPDF(){
       <td style="text-align:left;padding-left:6px;border:1px solid #ddd;white-space:nowrap">${dateLabel}</td>
       <td style="text-align:center;border:1px solid #ddd">${reg.efetivo||''}</td>
       ${itemCells}${catQtyCells}
-      <td style="text-align:center;border:1px solid #ddd;font-weight:700">${totalDia||''}</td>
+      <td style="text-align:center;border:1px solid #ddd">${totalDia||''}</td>
     </tr>`;
   });
 
@@ -1448,7 +1250,8 @@ function exportarPDF(){
     .info-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-bottom:10px}
     .info-cell{border:1px solid #ccc;padding:5px 8px;border-radius:3px;font-size:8.5pt}
     .info-cell label{font-size:7pt;color:#888;display:block;font-weight:700;text-transform:uppercase}
-    .total-row{background:${emp.pdfTotal}!important;font-weight:800;color:${emp.pdfTotalText}!important}
+    .total-row{background:${emp.pdfTotal}!important;color:${emp.pdfTotalText}!important}
+    .total-row td{font-weight:800!important}
     h3{color:${emp.pdfLightText};margin:12px 0 6px}
   </style></head><body>
   <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;overflow:visible">
@@ -1622,6 +1425,5 @@ function renderReportLog(){
 
 window.addEventListener('DOMContentLoaded', init);
 </script>
-
-
-</body></html>
+</body>
+</html>
